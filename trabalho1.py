@@ -39,8 +39,13 @@ larguraTela, alturaTela = 192*5, 108*5
 tela = pygame.display.set_mode((larguraTela, alturaTela))
 bola = pygame.image.load("bola.gif")
 relogio = pygame.time.Clock()
+pygame.display.set_caption("Passaros Tranquilos")
 
 x, y = 0, 450
+
+tjx = []
+tjy = []
+tj = 0
 
 pygame.init()
 while True:
@@ -72,6 +77,14 @@ while True:
                 
     tela.fill((255,255,255))
     tela.blit(bola, (x, y))
+
+    tjx.append(x)
+    tjy.append(y)
+    tj += 1
+
+    for i in range(tj):
+        pygame.draw.circle(tela, (255, 0, 0), [12+int(tjx[i]), 12+int(tjy[i])], 3, 0)
+
     relogio.tick(1000/30.0)
     pygame.display.flip()
  
