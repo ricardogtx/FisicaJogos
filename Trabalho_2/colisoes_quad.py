@@ -18,7 +18,7 @@ class Squares:
 		self.theta = np.random.uniform(0, 2*np.pi, size=N)
 		self.omega = np.random.uniform(-10, 10, size=N)
 
-		self.m = np.random.uniform(10, 255, size=N)
+		self.m = np.random.uniform(1, 255, size=N)
 		self.cor = cor
 		self.cor_wall = cor_wall
 		self.max_speed = max_speed
@@ -79,7 +79,7 @@ class Squares:
 		for i, (x, y) in enumerate(self.pos):
 			m = self.m[i]
 			vertices = self.vertices(self.pos[i], self.theta[i])
-			pygame.draw.polygon(screen, (m,0,0), vertices, 0)
+			pygame.draw.polygon(screen, (0,m,0), vertices, 0)
 
 	def stop(self, i):
 		self.vel[i] = (0, 0)
@@ -94,7 +94,7 @@ class Squares:
 				N = np.array([delta[1], -delta[0]])
 
 				if sum(alpha_v * N) >= 0:
-					# Collided
+					# Detected collision, stop the square
 					self.stop(i)
 					break
 
