@@ -1,4 +1,8 @@
 #-*- coding: utf8 -*-
+
+## Caio Nardelli Maranhao - 12/0044773
+## Ricardo Teixeira - 12/0021561
+
 import pygame
 import numpy as np
 from pygame.locals import *
